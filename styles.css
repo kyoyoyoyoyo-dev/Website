@@ -27,6 +27,66 @@ body::before {
     z-index: -1;
 }
 
+/* Mobile-responsive heart animations */
+@media (max-width: 768px) {
+    #heart-container {
+        overflow: hidden;
+    }
+    
+    /* Smaller floating hearts on mobile */
+    .floating-heart {
+        font-size: 20px !important;
+    }
+    
+    /* Adjust animation speeds for mobile */
+    @keyframes floatHeart {
+        0% { 
+            transform: translateY(0) rotate(0deg); 
+            opacity: 0.8;
+        }
+        100% { 
+            transform: translateY(-150vh) rotate(360deg); 
+            opacity: 0;
+        }
+    }
+    
+    /* Slightly faster heartbeat on mobile */
+    @keyframes heartbeat {
+        0%, 50%, 100% { 
+            transform: translate(-50%, -50%) scale(1); 
+        }
+        25% { 
+            transform: translate(-50%, -50%) scale(1.05); 
+        }
+        75% { 
+            transform: translate(-50%, -50%) scale(0.95); 
+        }
+    }
+}
+
+/* Very small phones */
+@media (max-width: 480px) {
+    #heart-container {
+        padding: 10px;
+    }
+    
+    /* Even smaller elements for tiny screens */
+    .main-heart {
+        font-size: 100px !important;
+    }
+    
+    .floating-heart {
+        font-size: 16px !important;
+    }
+}
+
+/* Tablet adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .main-heart {
+        font-size: 180px !important;
+    }
+}
+
 @keyframes floatBackground {
     0%, 100% { transform: translate(0, 0) scale(1); }
     33% { transform: translate(-30px, -30px) scale(1.1); }
@@ -324,4 +384,5 @@ a.btn:hover {
     .btn {
         width: 200px;
     }
+
 }
